@@ -1,0 +1,112 @@
+<!-- notes.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StudyBuddy - Notes</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen p-6 transition-colors duration-500 font-sans">
+  <header class="flex justify-between items-center mb-6">
+    <h1 class="text-3xl font-bold">Notes</h1>
+    <a href="dashboard.html" class="text-indigo-600 hover:underline dark:text-indigo-400">Back to Dashboard</a>
+  </header>
+
+  <main class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+    <div id="notesContainer"></div>
+  </main>
+
+  <script>
+    if (!localStorage.getItem('studentName') || !localStorage.getItem('course') || !localStorage.getItem('year')) {
+      window.location.href = 'index.html';
+    }
+
+    const course = localStorage.getItem('course');
+    const year = localStorage.getItem('year');
+
+    // Sample notes database structured by course and year
+    const notesDB = {
+      "bca": {
+        "1st-year": [
+          { subject: "Programming Fundamentals", link: "#" },
+          { subject: "Mathematics I", link: "#" }
+        ],
+        "2nd-year": [
+          { subject: "Data Structures", link: "#" },
+          { subject: "Database Management", link: "#" }
+        ],
+        "3rd-year": [
+          { subject: "Operating Systems", link: "#" },
+          { subject: "Software Engineering", link: "#" }
+        ]
+      },
+      "bba": {
+        "1st-year": [
+          { subject: "Principles of Management", link: "#" },
+          { subject: "Business Economics", link: "#" }
+        ],
+        "2nd-year": [
+          { subject: "Financial Accounting", link: "#" },
+          { subject: "Marketing Management", link: "#" }
+        ],
+        "3rd-year": [
+          { subject: "Human Resource Management", link: "#" },
+          { subject: "Business Law", link: "#" }
+        ]
+      },
+      "btech": {
+        "1st-year": [
+          { subject: "Engineering Mathematics", link: "#" },
+          { subject: "Physics", link: "#" }
+        ],
+        "2nd-year": [
+          { subject: "Digital Electronics", link: "#" },
+          { subject: "Thermodynamics", link: "#" }
+        ],
+        "3rd-year": [
+          { subject: "Microprocessors", link: "#" },
+          { subject: "Computer Networks", link: "#" }
+        ],
+        "4th-year": [
+          { subject: "Machine Learning", link: "#" },
+          { subject: "Cloud Computing", link: "#" }
+        ]
+      },
+      "11-12": {
+        "11th": [
+          { subject: "Physics", link: "#" },
+          { subject: "Chemistry", link: "#" }
+        ],
+        "12th": [
+          { subject: "Biology", link: "#" },
+          { subject: "Mathematics", link: "#" }
+        ]
+      }
+      // Add other courses similarly...
+    };
+
+    // notes year keys are lowercase and hyphenated like in index.html
+    const selectedNotes = (notesDB[course] && notesDB[course][year]) || [];
+
+    const container = document.getElementById('notesContainer');
+
+    if(selectedNotes.length === 0){
+      container.innerHTML = "<p>No notes available for your course and year yet.</p>";
+    } else {
+      const ul = document.createElement('ul');
+      ul.classList.add('list-disc', 'pl-5');
+      selectedNotes.forEach(note => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = note.link;
+        a.textContent = note.subject;
+        a.classList.add('text-indigo-600', 'hover:underline');
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      container.appendChild(ul);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-500">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Previous Year Papers - StudyBuddy</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen p-6 transition-colors duration-500 font-sans">
+
+  <header class="flex justify-between items-center mb-6">
+    <h1 class="text-3xl font-bold">Previous Year Papers</h1>
+    <a href="dashboard.html" class="text-indigo-600 hover:underline dark:text-indigo-400">Back to Dashboard</a>
+  </header>
+
+  <main class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+    <h2 class="text-2xl font-semibold mb-4">Download Papers for Your Course</h2>
+    <ul id="papersList" class="list-disc list-inside space-y-3 text-indigo-600 dark:text-indigo-400">
+      <!-- Papers links inserted here -->
+    </ul>
+  </main>
+
+  <script>
+    if (!localStorage.getItem('studentName') || !localStorage.getItem('course')) {
+      window.location.href = 'index.html';
+    }
+
+    const course = localStorage.getItem('course').toLowerCase();
+    const papersList = document.getElementById('papersList');
+
+    // Sample papers data - dummy URLs, replace with actual files
+    const papersData = {
+      '11-12': [
+        { name: 'Physics 2023.pdf', url: 'https://example.com/11-12-physics-2023.pdf' },
+        { name: 'Chemistry 2023.pdf', url: 'https://example.com/11-12-chemistry-2023.pdf' }
+      ],
+      'bca': [
+        { name: 'Programming 2023.pdf', url: 'https://example.com/bca-programming-2023.pdf' },
+        { name: 'Database 2023.pdf', url: 'https://example.com/bca-database-2023.pdf' }
+      ],
+      'bba': [
+        { name: 'Marketing 2023.pdf', url: 'https://example.com/bba-marketing-2023.pdf' },
+        { name: 'Accounting 2023.pdf', url: 'https://example.com/bba-accounting-2023.pdf' }
+      ],
+      'btech': [
+        { name: 'Data Structures 2023.pdf', url: 'https://example.com/btech-ds-2023.pdf' },
+        { name: 'OS 2023.pdf', url: 'https://example.com/btech-os-2023.pdf' }
+      ],
+      'mtech': [
+        { name: 'Advanced Algorithms 2023.pdf', url: 'https://example.com/mtech-algo-2023.pdf' },
+        { name: 'Research Methodology 2023.pdf', url: 'https://example.com/mtech-research-2023.pdf' }
+      ],
+      'mba': [
+        { name: 'Business Strategy 2023.pdf', url: 'https://example.com/mba-strategy-2023.pdf' },
+        { name: 'Finance Management 2023.pdf', url: 'https://example.com/mba-finance-2023.pdf' }
+      ],
+      'law': [
+        { name: 'Constitutional Law 2023.pdf', url: 'https://example.com/law-constitution-2023.pdf' },
+        { name: 'Criminal Law 2023.pdf', url: 'https://example.com/law-criminal-2023.pdf' }
+      ]
+    };
+
+    function loadPapers() {
+      papersList.innerHTML = '';
+      const papers = papersData[course] || [];
+      if(papers.length === 0) {
+        papersList.innerHTML = '<li>No papers available yet.</li>';
+        return;
+      }
+      papers.forEach(paper => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = paper.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = paper.name;
+        li.appendChild(a);
+        papersList.appendChild(li);
+      });
+    }
+
+    loadPapers();
+  </script>
+</body>
+</html>

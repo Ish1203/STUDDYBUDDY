@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyBuddy Login</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      font-family: 'Segoe UI', sans-serif;
+      color: whitesmoke;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+      width: 90%;
+      max-width: 400px;
+    }
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+    input, select {
+      background: rgba(255, 255, 255, 0.2);
+      color: rgb(52, 61, 61);
+    }
+    button {
+      background-color: #00c6ff;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #0072ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Welcome to StudyBuddy</h2>
+    <form onsubmit="loginUser(event)">
+      <input type="text" id="name" placeholder="Enter your name" required>
+      <input type="text" id="university" placeholder="Enter your university" required>
+      <select id="course" required>
+        <option value="" disabled selected>Select your course</option>
+        <option value="11-12">Class 11-12</option>
+        <option value="BCA">BCA</option>
+        <option value="BBA">BBA</option>
+        <option value="B.Tech">B.Tech</option>
+        <option value="M.Tech">M.Tech</option>
+        <option value="MBA">MBA</option>
+        <option value="Law">Law</option>
+      </select>
+      <select id="year" required>
+        <option value="" disabled selected>Select year of study</option>
+        <option value="1st Year">1st Year</option>
+        <option value="2nd Year">2nd Year</option>
+        <option value="3rd Year">3rd Year</option>
+        <option value="4th Year">4th Year</option>
+      </select>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    function loginUser(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const university = document.getElementById('university').value;
+      const course = document.getElementById('course').value;
+      const year = document.getElementById('year').value;
+
+      const query = `dashboard.html?name=${encodeURIComponent(name)}&university=${encodeURIComponent(university)}&course=${encodeURIComponent(course)}&year=${encodeURIComponent(year)}`;
+      window.location.href = query;
+    }
+  </script>
+</body>
+</html>

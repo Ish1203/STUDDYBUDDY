@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyBuddy Timetable</title>
+  <style>
+    body {
+      background: #1a2a3a;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    form input, form button {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border-radius: 0.5rem;
+      border: none;
+      font-size: 1rem;
+    }
+    input {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+    button {
+      background-color: #00c6ff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0072ff;
+    }
+    .task-list {
+      margin-top: 1rem;
+    }
+    .task-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Your Timetable Planner</h1>
+    <form id="taskForm">
+      <input type="text" id="subject" placeholder="Enter Subject" required />
+      <input type="datetime-local" id="time" required />
+      <button type="submit">Add Task</button>
+    </form>
+    <div class="task-list" id="taskList"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById("taskForm");
+    const taskList = document.getElementById("taskList");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const subject = document.getElementById("subject").value;
+      const time = document.getElementById("time").value;
+
+      if (subject && time) {
+        const div = document.createElement("div");
+        div.className = "task-item";
+        div.textContent = `${subject} - ${new Date(time).toLocaleString()}`;
+        taskList.appendChild(div);
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>

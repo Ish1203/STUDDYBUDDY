@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyBuddy Dashboard</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #141e30, #243b55);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #00d2ff;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      color: black;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      z-index: 1;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+    .info-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">StudyBuddy</div>
+    <nav>
+      <div class="dropdown">
+        <button>Timetable</button>
+        <div class="dropdown-content">
+          <a href="timetable.html">Planner</a>
+          <a href="#">Set Alarms</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button>Notes</button>
+        <div class="dropdown-content">
+          <a href="#">1st Year</a>
+          <a href="#">2nd Year</a>
+          <a href="#">3rd Year</a>
+          <a href="#">4th Year</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button>Quizzes</button>
+        <div class="dropdown-content">
+          <a href="#">Coming Soon</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button>Papers</button>
+        <div class="dropdown-content">
+          <a href="#">Previous Year</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button>Syllabus</button>
+        <div class="dropdown-content">
+          <a href="#">View Syllabus</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Welcome to Your Dashboard</h1>
+    <div class="info-box">
+      <p id="studentInfo"></p>
+    </div>
+  </main>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const university = urlParams.get('university');
+    const course = urlParams.get('course');
+    const year = urlParams.get('year');
+
+    const infoBox = document.getElementById('studentInfo');
+    if (name && university && course && year) {
+      infoBox.textContent = `${name} from ${university}, enrolled in ${course} - ${year}`;
+    } else {
+      infoBox.textContent = "User details not found. Please login again.";
+    }
+  </script>
+</body>
+</html>
