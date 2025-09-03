@@ -59,6 +59,7 @@ Organization Tools: Timetable planner, reminder system, task management
 Version Control: Git + GitHub
 
 
+
 🎯 Usage
 
 Dashboard: Access all modules from a single place with dropdown menus.
@@ -72,6 +73,7 @@ Quizzes: Test yourself with interactive MCQs.
 Papers: Browse and practice previous year exam papers.
 
 
+
 🌱 Future Enhancements
 
 🔐 User authentication & login system
@@ -81,6 +83,7 @@ Papers: Browse and practice previous year exam papers.
 📊 Performance analytics & progress tracker
 
 📱 Mobile-first PWA (Progressive Web App) support
+
 
 
 🤝 Contributing
