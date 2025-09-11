@@ -54,7 +54,7 @@ Frontend: HTML5, CSS3 (with Tailwind for responsiveness), JavaScript (Vanilla + 
 
 Styling: Modern UI principles, animations, grid layouts, rounded corners, soft shadows
 
-Organization Tools: Timetable planner, reminder system, task management
+Organization Tools: Timetable planner, reminder system, task management.
 
 Version Control: Git + GitHub
 
