@@ -1,4 +1,4 @@
-# 📚 StudyBuddy – Your Smart Academic Companion  
+# 📚 StudyBuddy – Your Smart Academic Companion
 
 StudyBuddy is a modern, responsive, and feature-rich web application designed to make learning and academic organization easier for students. It caters to students across multiple courses (11th–12th, BCA, BBA, B.Tech, M.Tech, MBA, Law) by offering personalized dashboards, study materials, quizzes, previous year papers, and a fully functional timetable planner with alarms and notes.  
 
