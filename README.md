@@ -13,7 +13,7 @@ StudyBuddy is a modern, responsive, and feature-rich web application designed to
 - 🕒 **Timetable Planner with Alarms** – Add/edit tasks, set reminders, and keep your day structured.  
 - ❓ **Interactive Quizzes** – Test your knowledge with subject-based quizzes.  
 - 📑 **Previous Year Papers** – Easy access to past exam papers for practice.  
-- 🎭 **Custom Themes** – UI dynamically adapts based on the chosen course/stream.  
+- 🎭 **Custom Themes** – UI dynamically adapts based on the chosen course/stream.
 
 ---
 
