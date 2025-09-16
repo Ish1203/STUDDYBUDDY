@@ -17,7 +17,7 @@ StudyBuddy is a modern, responsive, and feature-rich web application designed to
 
 ---
 
-## 📂 Project Structure  
+## 📂 Project Structure
 
 ```bash
 StudyBuddy/
